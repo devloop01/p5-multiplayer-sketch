@@ -9,6 +9,6 @@ COPY . .
 
 RUN pnpm install
 
-CMD ["npx", "turbo", "build"]
+RUN turbo build
 
 WORKDIR /app/server/
