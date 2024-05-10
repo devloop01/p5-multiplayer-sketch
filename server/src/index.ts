@@ -7,6 +7,11 @@ import { createApplication } from './app';
 import { InMemoryPlayerRepository } from './player-management/player.repository';
 
 const PORT = process.env.PORT || 3000;
+const ORIGIN = process.env.ORIGIN;
+
+if (!ORIGIN) {
+  throw new Error('ORIGIN is not defined');
+}
 
 const httpServer = createServer();
 
@@ -15,7 +20,7 @@ createApplication(
   { playerRepository: new InMemoryPlayerRepository() },
   {
     cors: {
-      origin: ['http://localhost:5173'],
+      origin: [ORIGIN],
     },
   },
 );
