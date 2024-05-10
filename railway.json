@@ -3,7 +3,7 @@
   "build": {
     "builder": "DOCKERFILE",
     "watchPatterns": ["/server"],
-    "dockerfilePath": "Dockerfile"
+    "dockerfilePath": "/server/Dockerfile"
   },
   "deploy": {
     "numReplicas": 1,
