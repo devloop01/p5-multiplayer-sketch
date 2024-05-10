@@ -19,6 +19,9 @@ export function createApplication(
     createPlayerHandlers(components);
 
   io.on('connection', (socket) => {
+    console.log('New connection:', socket.id);
+    console.log('Total connections:', io.engine.clientsCount);
+
     socket.on('player:create', createPlayer);
     socket.on('player:update', updatePlayer);
     socket.on('player:delete', deletePlayer);
