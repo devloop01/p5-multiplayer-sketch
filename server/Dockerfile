@@ -5,11 +5,9 @@ RUN npm install -g turbo
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY . .
 
 RUN pnpm install
-
-COPY . .
 
 CMD ["npx", "turbo", "build"]
 
