@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY . .
 
-# Install dependencies using pnpm
 RUN pnpm install
+
+RUN pnpm build:server
 
 WORKDIR /app/server/
