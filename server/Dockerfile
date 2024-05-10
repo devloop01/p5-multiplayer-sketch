@@ -10,4 +10,4 @@ COPY . .
 # Install dependencies using pnpm
 RUN pnpm install
 
-WORKDIR /server/
+WORKDIR /app/server/
