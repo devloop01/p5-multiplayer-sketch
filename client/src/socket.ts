@@ -7,9 +7,4 @@ if (!URL) {
   throw new Error('VITE_SOCKET_SERVER_URL is not defined');
 }
 
-export const socket: Socket<ServerEvents, ClientEvents> = io(URL, {
-  withCredentials: true,
-  extraHeaders: {
-    'my-custom-header': 'abcd',
-  },
-});
+export const socket: Socket<ServerEvents, ClientEvents> = io(URL, {});
