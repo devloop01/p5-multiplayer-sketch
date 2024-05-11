@@ -7,12 +7,9 @@ import { createApplication } from './app';
 import { InMemoryPlayerRepository } from './player-management/player.repository';
 
 const HOST = '0.0.0.0';
-const PORT = 3000;
+const PORT = parseInt(process.env.PORT || '3000');
 const ORIGIN = process.env.ORIGIN;
-
-if (!ORIGIN) {
-  throw new Error('ORIGIN is not defined');
-}
+const DEV = process.env.NODE_ENV === 'development';
 
 const httpServer = createServer((req, res) => {
   res.statusCode = 200;
@@ -25,7 +22,7 @@ createApplication(
   { playerRepository: new InMemoryPlayerRepository() },
   {
     cors: {
-      origin: '*',
+      origin: DEV ? '*' : ORIGIN,
     },
   },
 );
