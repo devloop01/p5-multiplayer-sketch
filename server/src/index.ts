@@ -15,12 +15,14 @@ if (!ORIGIN) {
 
 const httpServer = createServer();
 
-createApplication(
+const io = createApplication(
   httpServer,
   { playerRepository: new InMemoryPlayerRepository() },
   {
     cors: {
       origin: [ORIGIN],
+      allowedHeaders: ['my-custom-header'],
+      credentials: true,
     },
   },
 );
