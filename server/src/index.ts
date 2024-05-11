@@ -25,7 +25,7 @@ createApplication(
   { playerRepository: new InMemoryPlayerRepository() },
   {
     cors: {
-      origin: [ORIGIN],
+      origin: '*',
     },
   },
 );
