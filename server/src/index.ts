@@ -17,8 +17,12 @@ const httpServer = createServer((req, res) => {
   res.end('Hello World\n');
 });
 
+const server = httpServer.listen(PORT, HOST, undefined, () => {
+  console.log(`Server is running on port ${HOST}:${PORT}`);
+});
+
 createApplication(
-  httpServer,
+  server,
   { playerRepository: new InMemoryPlayerRepository() },
   {
     cors: {
@@ -26,7 +30,3 @@ createApplication(
     },
   },
 );
-
-httpServer.listen(PORT, HOST, undefined, () => {
-  console.log(`Server is running on port ${HOST}:${PORT}`);
-});
